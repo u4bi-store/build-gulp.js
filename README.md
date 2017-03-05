@@ -25,3 +25,4 @@
     npm install gulp-webserver --save-dev
     npm install gulp-file-include --save-dev
     npm install jshint gulp-jshint --save-dev
+    npm install gulp-babel babel-preset-es2015 --save-dev

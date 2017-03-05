@@ -1,3 +1,3 @@
 function B(){
-    console.log('B');
+    console.log('BBC');
 }

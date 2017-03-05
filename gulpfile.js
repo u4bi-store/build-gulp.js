@@ -96,6 +96,15 @@ gulp.task('coffee-js-min', ['coffee-B'], function(){
         .pipe(gulp.dest('dist'))
 });
 
+/**
+ * 정의한  Task
+ * @name watch
+ * 특정 폴더를 바라보게하고 수정이 되었을 때 Task를 실행한다.
+ *
+ */
+gulp.task('watch', function(){
+    return gulp.watch('app/src/*{js, coffee}', ['coffee-js-min'])
+});
 
 
 gulp.task('u4bi', function(){

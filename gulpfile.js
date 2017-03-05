@@ -71,6 +71,33 @@ gulp.task('coffee', function(){
         .pipe(gulp.dest('dist'))
 });
 
+
+/**
+ * 정의한  Task
+ * @name coffee-js-min
+ * 커피스크립트를 js파일로 변환해 src 폴더에 담고
+ * 다음 Task가 진행된다.
+ * 
+ * 다음 Task는 min Task와 동일 (파일 합치고 압축)
+ * 즉 커피스크립트까지 포함된 형태의 coffee-js.min.js가 dist폴더에 생성
+ *
+ */
+
+gulp.task('coffee-B', function(){
+    return gulp.src('app/src/*.coffee')
+        .pipe(coffee())
+        .pipe(gulp.dest('app/src'))
+});
+
+gulp.task('coffee-js-min', ['coffee-B'], function(){
+    return gulp.src('app/src/*.js')
+        .pipe(concat('coffee-js.min.js'))
+        .pipe(uglify())
+        .pipe(gulp.dest('dist'))
+});
+
+
+
 gulp.task('u4bi', function(){
     console.log('wow u4bi');
 });

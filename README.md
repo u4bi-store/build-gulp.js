@@ -23,3 +23,4 @@
     npm install gulp-concat --save-dev
     npm install gulp-coffee --save-dev
     npm install gulp-htmlmin --save-dev
+    npm install gulp-webserver --save-dev

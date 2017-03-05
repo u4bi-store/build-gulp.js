@@ -24,3 +24,4 @@
     npm install gulp-htmlmin --save-dev
     npm install gulp-webserver --save-dev
     npm install gulp-file-include --save-dev
+    npm install jshint gulp-jshint --save-dev

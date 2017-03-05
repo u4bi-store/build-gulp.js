@@ -12,9 +12,11 @@
          css
          scss
             styles.scss
+         src
          index.html
     dist (배포)
     gulpfile.js
 
 ##### 걸프 플러그인
     npm install gulp-sass --save-dev
+    npm install gulp-uglify --save-dev

@@ -7,6 +7,7 @@ var htmlmin = require('gulp-htmlmin'); /* html 파일의 소스를 압축하기 
 var webserver = require('gulp-webserver'); /* 웹서버처럼 동작하게하는 걸프 플러그인 */
 var fileinclude = require('gulp-file-include'); /* 파일을 인클루드하는 걸프 플러그인 */
 var jshint = require('gulp-jshint'); /* 지정 파일에 js hint를 돌려주는 걸프 플러그인 */
+var babel = require('gulp-babel'); /* es5 구문을 호환시켜주는 걸프 플러그인 */
 
 /**
  * 정의한  Task
@@ -164,6 +165,20 @@ gulp.task('lint', function(){
     return gulp.src('app/src/*.js')
         .pipe(jshint())
         .pipe(jshint.reporter('default'));
+});
+
+/**
+ * 정의한  Task
+ * @name babel
+ * es5 구문을 호환시킨다.
+ *
+ */
+gulp.task('babel', function(){
+    return gulp.src('app/es5/sum.js')
+        .pipe(babel({
+            presets: ['es2015']
+        }))
+        .pipe(gulp.dest('dist'));
 });
 
 gulp.task('u4bi', function(){

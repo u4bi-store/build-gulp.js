@@ -11,7 +11,6 @@
     app (빌드)
          css
          scss
-            styles.scss
          src
          index.html
     dist (배포)
@@ -24,3 +23,4 @@
     npm install gulp-coffee --save-dev
     npm install gulp-htmlmin --save-dev
     npm install gulp-webserver --save-dev
+    npm install gulp-file-include --save-dev

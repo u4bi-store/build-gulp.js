@@ -11,6 +11,7 @@
     app (빌드)
          css
          scss
+            styles.scss
          index.html
     dist (배포)
     gulpfile.js

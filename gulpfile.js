@@ -45,6 +45,19 @@ gulp.task('concat', function(){
         .pipe(gulp.dest('dist'))
 });
 
+/**
+ * 정의한  Task
+ * @name min
+ * 파일들을 합치고 소스를 압축한다.
+ *
+ */
+gulp.task('min', function(){
+    return gulp.src('app/src/*.js')
+        .pipe(concat('all.min.js'))
+        .pipe(uglify())
+        .pipe(gulp.dest('dist'))
+});
+
 gulp.task('u4bi', function(){
     console.log('wow u4bi');
 });

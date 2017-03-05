@@ -5,6 +5,7 @@ var concat = require('gulp-concat'); /* 파일들을 합치기 위한 걸프 플
 var coffee = require('gulp-coffee'); /* 커피 스크립트를 js로 변환하는 걸프 플러그인 */
 var htmlmin = require('gulp-htmlmin'); /* html 파일의 소스를 압축하기 위한 걸프 플러그인 */
 var webserver = require('gulp-webserver'); /* 웹서버처럼 동작하게하는 걸프 플러그인 */
+var fileinclude = require('gulp-file-include'); /* 파일을 인클루드하는 걸프 플러그인 */
 
 /**
  * 정의한  Task
@@ -135,6 +136,21 @@ gulp.task('webserver', function() {
       livereload: true, /* 파일이 수정되면 리로드 */
       directoryListing: true /* 폴더 목록 표시 */
     }));
+});
+
+/**
+ * 정의한  Task
+ * @name fileinclude
+ * 파일을 인클루드 한다.
+ *
+ */
+gulp.task('fileinclude', function(){
+    return gulp.src('app/fileinclude/index.html')
+        .pipe(fileinclude({
+            prefix: '@@',
+            basepath: '@file'
+        }))
+        .pipe(gulp.dest('dist'));
 });
 
 gulp.task('u4bi', function(){

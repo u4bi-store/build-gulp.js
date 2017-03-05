@@ -1,6 +1,7 @@
 var gulp = require('gulp');
 var sass = require('gulp-sass'); /* sass파일 빌드를 위한 걸프 플러그인 */
 var uglify = require('gulp-uglify'); /* 파일 소스 압축을 위한 걸프 플러그인 */
+var concat = require('gulp-concat'); /* 파일들을 합치기 위한 걸프 플러그인 */
 
 /**
  * 정의한  Task
@@ -29,6 +30,18 @@ gulp.task('scss', function(){
 gulp.task('uglify', function(){
     return gulp.src('app/src/*.js')
         .pipe(uglify())
+        .pipe(gulp.dest('dist'))
+});
+
+/**
+ * 정의한  Task
+ * @name concat
+ * 파일들을 합친다.
+ *
+ */
+gulp.task('concat', function(){
+    return gulp.src('app/src/*.js')
+        .pipe(concat('all.js'))
         .pipe(gulp.dest('dist'))
 });
 

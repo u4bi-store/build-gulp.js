@@ -13,3 +13,4 @@
          scss
          index.html
     dist (배포)
+    gulpfile.js

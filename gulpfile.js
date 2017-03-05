@@ -6,6 +6,7 @@ var coffee = require('gulp-coffee'); /* 커피 스크립트를 js로 변환하�
 var htmlmin = require('gulp-htmlmin'); /* html 파일의 소스를 압축하기 위한 걸프 플러그인 */
 var webserver = require('gulp-webserver'); /* 웹서버처럼 동작하게하는 걸프 플러그인 */
 var fileinclude = require('gulp-file-include'); /* 파일을 인클루드하는 걸프 플러그인 */
+var jshint = require('gulp-jshint'); /* 지정 파일에 js hint를 돌려주는 걸프 플러그인 */
 
 /**
  * 정의한  Task
@@ -151,6 +152,18 @@ gulp.task('fileinclude', function(){
             basepath: '@file'
         }))
         .pipe(gulp.dest('dist'));
+});
+
+/**
+ * 정의한  Task
+ * @name lint
+ * 지정파일에 js lint를 돌린다.
+ *
+ */
+gulp.task('lint', function(){
+    return gulp.src('app/src/*.js')
+        .pipe(jshint())
+        .pipe(jshint.reporter('default'));
 });
 
 gulp.task('u4bi', function(){

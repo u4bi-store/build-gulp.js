@@ -21,3 +21,4 @@
     npm install gulp-sass --save-dev
     npm install gulp-uglify --save-dev
     npm install gulp-concat --save-dev
+    npm install gulp-coffee --save-dev

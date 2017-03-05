@@ -1,0 +1,3 @@
+# A.coffee
+Afunction = ->
+'A'

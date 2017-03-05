@@ -18,6 +18,7 @@
   "homepage": "https://github.com/u4bi/build-gulp.js#readme",
   "devDependencies": {
     "gulp": "^3.9.1",
+    "gulp-coffee": "^2.3.3",
     "gulp-concat": "^2.6.1",
     "gulp-sass": "^3.1.0",
     "gulp-uglify": "^2.0.1"

@@ -4,6 +4,7 @@ var uglify = require('gulp-uglify'); /* 파일 소스 압축을 위한 걸프 �
 var concat = require('gulp-concat'); /* 파일들을 합치기 위한 걸프 플러그인 */
 var coffee = require('gulp-coffee'); /* 커피 스크립트를 js로 변환하는 걸프 플러그인 */
 var htmlmin = require('gulp-htmlmin'); /* html 파일의 소스를 압축하기 위한 걸프 플러그인 */
+var webserver = require('gulp-webserver'); /* 웹서버처럼 동작하게하는 걸프 플러그인 */
 
 /**
  * 정의한  Task
@@ -117,6 +118,23 @@ gulp.task('htmlmin', function(){
     return gulp.src('app/*.html')
         .pipe(htmlmin({collapseWhitespace: true}))
         .pipe(gulp.dest('dist'));
+});
+
+/**
+ * 정의한  Task
+ * @name webserver
+ * 웹서버처럼 동작하게 한다.
+ * 옵션 : https://www.npmjs.com/package/gulp-webserver
+ * 
+ */
+gulp.task('webserver', function() {
+  gulp.src('app')
+    .pipe(webserver({
+      fallback: 'index.html', /* 루트 페이지 지정 */
+      port : 4187, /* 포트 지정 */
+      livereload: true, /* 파일이 수정되면 리로드 */
+      directoryListing: true /* 폴더 목록 표시 */
+    }));
 });
 
 gulp.task('u4bi', function(){

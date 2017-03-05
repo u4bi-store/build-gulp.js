@@ -5,3 +5,4 @@
     npm init (all enter)
     .gitignore 파일 생성
         - node_modules 등록
+    npm install gulp --save-dev

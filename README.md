@@ -26,3 +26,158 @@
     npm install gulp-file-include --save-dev
     npm install jshint gulp-jshint --save-dev
     npm install gulp-babel babel-preset-es2015 --save-dev
+
+
+```javascript
+/**
+ * 정의한  Task
+ * @name scss
+ * SCSS 파일을 빌드한다.
+ *
+ */
+gulp.task('scss', function(){
+    return gulp.src('app/scss/styles.scss') /* 해당 주소지 파일을 */
+        .pipe(sass())
+        /* 파이프를 통해 sass() 메서드를 호출
+           즉 sass - > css 파일로 변환
+        */
+        .pipe(gulp.dest('app/css'))
+        /* 해당 주소지에 반환값이 담긴다.
+           즉 변환된 styles.css 파일이 생성
+        */
+});
+```
+
+```javascript
+/**
+ * 정의한  Task
+ * @name uglify
+ * 파일의 소스를 압축한다.
+ *
+ */
+gulp.task('uglify', function(){
+    return gulp.src('app/src/*.js')
+        .pipe(uglify())
+        .pipe(gulp.dest('dist'))
+});
+```
+
+```javascript
+/**
+ * 정의한  Task
+ * @name concat
+ * 파일들을 합친다.
+ *
+ */
+gulp.task('concat', function(){
+    return gulp.src('app/src/*.js')
+        .pipe(concat('all.js'))
+        .pipe(gulp.dest('dist'))
+});
+```
+
+```javascript
+/**
+ * 정의한  Task
+ * @name coffee
+ * 커피스크립트를 js파일로 변환한다.
+ *
+ */
+gulp.task('coffee', function(){
+    return gulp.src('app/src/*.coffee')
+        .pipe(coffee())
+        .pipe(gulp.dest('dist'))
+});
+```
+
+```javascript
+/**
+ * 정의한  Task
+ * @name watch
+ * 특정 폴더를 바라보게하고 수정이 되었을 때 Task를 실행한다.
+ *
+ */
+gulp.task('watch', function(){
+    return gulp.watch('app/src/*{js, coffee}', ['coffee-js-min'])
+});
+```
+
+```javascript
+/**
+ * 정의한  Task
+ * @name htmlmin
+ * html파일의 소스를 압축한다.
+ *
+ */
+gulp.task('htmlmin', function(){
+    return gulp.src('app/*.html')
+        .pipe(htmlmin({collapseWhitespace: true}))
+        .pipe(gulp.dest('dist'));
+});
+```
+
+```javascript
+/**
+ * 정의한  Task
+ * @name webserver
+ * 웹서버처럼 동작하게 한다.
+ * 옵션 : https://www.npmjs.com/package/gulp-webserver
+ * 
+ */
+gulp.task('webserver', function() {
+  gulp.src('app')
+    .pipe(webserver({
+      fallback: 'index.html', /* 루트 페이지 지정 */
+      port : 4187, /* 포트 지정 */
+      livereload: true, /* 파일이 수정되면 리로드 */
+      directoryListing: true /* 폴더 목록 표시 */
+    }));
+});
+```
+
+```javascript
+/**
+ * 정의한  Task
+ * @name fileinclude
+ * 파일을 인클루드 한다.
+ *
+ */
+gulp.task('fileinclude', function(){
+    return gulp.src('app/fileinclude/index.html')
+        .pipe(fileinclude({
+            prefix: '@@',
+            basepath: '@file'
+        }))
+        .pipe(gulp.dest('dist'));
+});
+```
+
+```javascript
+/**
+ * 정의한  Task
+ * @name lint
+ * 지정파일에 js lint를 돌린다.
+ *
+ */
+gulp.task('lint', function(){
+    return gulp.src('app/src/*.js')
+        .pipe(jshint())
+        .pipe(jshint.reporter('default'));
+});
+```
+
+```javascript
+/**
+ * 정의한  Task
+ * @name babel
+ * es6 구문을 호환시킨다.
+ *
+ */
+gulp.task('babel', function(){
+    return gulp.src('app/es5/sum.js')
+        .pipe(babel({
+            presets: ['es2015']
+        }))
+        .pipe(gulp.dest('dist'));
+});
+```

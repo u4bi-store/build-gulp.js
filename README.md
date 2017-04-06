@@ -27,7 +27,7 @@
     npm install jshint gulp-jshint --save-dev
     npm install gulp-babel babel-preset-es2015 --save-dev
 
-
+##### gulp-sass
 ```javascript
 /**
  * 정의한  Task
@@ -48,6 +48,7 @@ gulp.task('scss', function(){
 });
 ```
 
+##### gulp-uglify
 ```javascript
 /**
  * 정의한  Task
@@ -62,6 +63,7 @@ gulp.task('uglify', function(){
 });
 ```
 
+##### gulp-concat
 ```javascript
 /**
  * 정의한  Task
@@ -76,6 +78,7 @@ gulp.task('concat', function(){
 });
 ```
 
+##### gulp-coffee
 ```javascript
 /**
  * 정의한  Task
@@ -90,6 +93,7 @@ gulp.task('coffee', function(){
 });
 ```
 
+##### gulp / watch
 ```javascript
 /**
  * 정의한  Task
@@ -102,6 +106,7 @@ gulp.task('watch', function(){
 });
 ```
 
+##### gulp-htmlmin
 ```javascript
 /**
  * 정의한  Task
@@ -116,6 +121,7 @@ gulp.task('htmlmin', function(){
 });
 ```
 
+##### gulp-webserver
 ```javascript
 /**
  * 정의한  Task
@@ -135,6 +141,7 @@ gulp.task('webserver', function() {
 });
 ```
 
+##### gulp-file-include
 ```javascript
 /**
  * 정의한  Task
@@ -152,6 +159,7 @@ gulp.task('fileinclude', function(){
 });
 ```
 
+##### gulp-jshint
 ```javascript
 /**
  * 정의한  Task
@@ -166,6 +174,7 @@ gulp.task('lint', function(){
 });
 ```
 
+##### gulp-babel
 ```javascript
 /**
  * 정의한  Task

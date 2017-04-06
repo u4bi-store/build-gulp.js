@@ -170,7 +170,7 @@ gulp.task('lint', function(){
 /**
  * 정의한  Task
  * @name babel
- * es5 구문으로 호환시킨다.
+ * es6를 es5 구문으로 호환시킨다.
  *
  */
 gulp.task('babel', function(){

@@ -1,6 +1,9 @@
 ##### 설치하기
     sudo npm install -g gulp-cli
 
+##### 빌드하기
+    gulp [task명]
+
 ##### 프로젝트 설정
     npm init (all enter)
     .gitignore 파일 생성
@@ -179,11 +182,11 @@ gulp.task('lint', function(){
 /**
  * 정의한  Task
  * @name babel
- * es6 구문을 호환시킨다.
+ * es6를 es5 구문으로 호환시킨다.
  *
  */
 gulp.task('babel', function(){
-    return gulp.src('app/es5/sum.js')
+    return gulp.src('app/es6/sum.js')
         .pipe(babel({
             presets: ['es2015']
         }))

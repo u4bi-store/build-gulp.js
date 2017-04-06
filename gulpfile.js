@@ -8,6 +8,7 @@ var webserver = require('gulp-webserver'); /* 웹서버처럼 동작하게하는
 var fileinclude = require('gulp-file-include'); /* 파일을 인클루드하는 걸프 플러그인 */
 var jshint = require('gulp-jshint'); /* 지정 파일에 js hint를 돌려주는 걸프 플러그인 */
 var babel = require('gulp-babel'); /* es5 구문으로 호환시켜주는 걸프 플러그인 */
+var browserify = require('gulp-browserify'); /* 파일을 browserify(브라우저리파이)를 통해 번들링 해주는 걸프 플러그인 */
 
 /**
  * 정의한  Task
@@ -179,6 +180,21 @@ gulp.task('babel', function(){
             presets: ['es2015']
         }))
         .pipe(gulp.dest('dist'));
+});
+
+/**
+ * 정의한  Task
+ * @name browserify
+ * browserify(브라우저리파이)를 통해 번들 작업을 거친다.
+ *
+ */
+gulp.task('browserify', function() {
+    return gulp.src('app/bundle/browserify-bundle.js')
+        .pipe(browserify({
+            insertGlobals : true,
+            debug : !gulp.env.production
+        }))
+        .pipe(gulp.dest('dist'))
 });
 
 gulp.task('u4bi', function(){

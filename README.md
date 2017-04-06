@@ -194,3 +194,21 @@ gulp.task('babel', function(){
         .pipe(gulp.dest('dist'));
 });
 ```
+
+##### gulp-browserify
+```javascript
+/**
+ * 정의한  Task
+ * @name browserify
+ * browserify(브라우저리파이)를 통해 번들 작업을 거친다.
+ *
+ */
+gulp.task('browserify', function() {
+    return gulp.src('app/bundle/browserify-bundle.js')
+        .pipe(browserify({
+            insertGlobals : true,
+            debug : !gulp.env.production
+        }))
+        .pipe(gulp.dest('dist'))
+});
+```
